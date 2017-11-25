@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from patient.models import Patient
 from users.models import UserProfile
-
+from veterinary.models import Veterinary
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,3 +19,14 @@ class PatientSerializer(serializers.ModelSerializer):
         """Meta class to map serializer's fields with the model fields."""
         model = Patient
         fields = ('longitude', 'latitude', 'description', 'before', 'user')
+
+
+
+
+class VeterinarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Veterinary
+        fields = ('veterinary_name','latitute','longtitute','address')
+
+
+
