@@ -13,7 +13,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <h1><i class="fa fa-paw" aria-hidden="true" style="color: white;"></i><a href="index.html">Patile</a></h1>
+                    <h1><i class="fa fa-paw" aria-hidden="true" style="color: white;"></i><a href="{% url 'home:index' %}">Patile</a></h1>
                 </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,11 +21,11 @@
                 <div class="col-md-10">
                     <div class="w3menu navbar-left">
                         <ul class="nav navbar">
-                            <li><a href="" class="active">Anasayfa</a></li>
-                            <li><a href="about.html">Hakkımızda</a></li>
+                            <li><a href="{% url 'home:index' %}" class="active">Anasayfa</a></li>
+                            <li><a href="{% url 'home:about' %}">Hakkımızda</a></li>
                             <li><a href="{% url 'home:pets' %}">Hayvanlarımız</a></li>
                             <li><a href="{% url 'home:vets' %}">Veterinerlerimiz</a></li>
-                            <li><a href="typo.html">Bağış Yapın</a></li>
+                            <li><a href="{% url 'home:payment' %}">Bağış Yapın</a></li>
                             <li><a class="sign" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Giriş</a></li>
                         </ul>
                     </div>
