@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -24,7 +23,7 @@ SECRET_KEY = 'dunxzz-hycl+6c4*^322*l_e$m!xq5ygb9kx3&&%2dh(yaq8fm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -39,6 +38,9 @@ INSTALLED_APPS = [
     'users',
     'veterinary',
     'home',
+
+    # 3rd Party apps
+    'rest_framework',
 
 ]
 
@@ -81,6 +83,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+
+    ],
+    'PAGE_SIZE': 10
 }
 
 # Password validation

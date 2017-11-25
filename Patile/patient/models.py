@@ -7,6 +7,8 @@ class Patient(models.Model):
     status = models.CharField(max_length=30, choices=STATUS_TYPE, default="AVAILABLE")
     user = models.ForeignKey("users.UserProfile", related_name="patient")
     description = models.TextField(max_length=140, blank=True, null=True)
+    longitude = models.DecimalField(decimal_places=6, max_digits=9)
+    latitude = models.DecimalField(decimal_places=6, max_digits=9)
     before = models.ImageField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField()  # auto now add nasil calisiyor
