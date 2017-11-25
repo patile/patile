@@ -11,4 +11,5 @@ class Veterinary(models.Model):
 
 
 class Veterinary_Patient(models.Model):
-    pass
+    veterinary = models.ForeignKey("Veterinary", related_name="patient")
+    patient = models.ForeignKey("Patient", related_name="veterinary")
