@@ -16,3 +16,8 @@ def singlePet(request):
 def singleVet(request):
     return render(request, 'singleVet.html')
 
+def about(request):
+    return render(request, 'about.html')
+def payment(request):
+    return render(request, 'payment.html')
+
