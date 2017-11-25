@@ -11,7 +11,7 @@ class Patient(models.Model):
     latitude = models.DecimalField(decimal_places=6, max_digits=9)
     before = models.ImageField()
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField()  # auto now add nasil calisiyor
+    updated_date = models.DateTimeField(null=True, blank=True)  # auto now add nasil calisiyor
     type = models.CharField(max_length=40, null=True, blank=True)
     sickness = models.CharField(max_length=100, default="Unknown")
     after = models.ImageField(blank=True, null=True)

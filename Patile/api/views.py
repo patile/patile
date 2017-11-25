@@ -1,9 +1,12 @@
+import json
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from api.serializers import PatientSerializer
 from patient.models import Patient
+from users.models import UserProfile
 
 
 class PatientView(APIView):
@@ -11,15 +14,21 @@ class PatientView(APIView):
     List all snippets, or create a new snippet.
     """
 
-    def get(self, request, format=None):
-        snippets = Patient.objects.all()
-        from api.serializers import PatientSerializer
-        serializer = PatientSerializer(snippets, many=True)
+    def get(self, request):
+        patient_id = request.GET.get("patient_id", "")
+        if patient_id:
+            patient = Patient.objects.get(id=patient_id)
+            serializer = PatientSerializer(patient)
+        else:
+            patients = Patient.objects.all()
+            serializer = PatientSerializer(patients)
         return Response(serializer.data)
 
-    def put(self, request, format=None):
-        serializer = PatientSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request):
+        body_unicode = request.body.decode('utf-8')
+        data = json.loads(body_unicode)
+        print(data)
+        user, created = UserProfile.objects.get_or_create(**data.get("user"))
+        data["user"] = user
+        Patient.objects.create(**data)
+        return Response(status=status.HTTP_200_OK)
