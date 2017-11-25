@@ -1,0 +1,39 @@
+{% extends 'base_for_vet.html' %}
+{% load staticfiles %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/table.css'%}">
+{% endblock %}
+{% block content %}
+
+    <table>
+        <caption class="table-caption">Tedavi Altında Olan Hayvanlar</caption>
+        <thead>
+        <tr class="head-color">
+            <th scope="col">Sıra Numarası</th>
+            <th scope="col">Türü</th>
+            <th scope="col">Cinsiyeti</th>
+            <th scope="col">Açıklaması</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Köpek</td>
+            <td>Erkek</td>
+            <td>Kas Ezilmesi</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Kedi</td>
+            <td>Dişi</td>
+            <td>Ateş</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Köpek</td>
+            <td>Erkek</td>
+            <td>Kas Ezilmesi</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
