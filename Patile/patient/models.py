@@ -18,3 +18,19 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.name
+
+    def accept_patient(self):
+
+        try:
+            self.status == "TREATMENT"
+        except:
+            raise BaseException("Does not exist")
+        self.save()
+
+    def close_patient(self):
+
+        try:
+            self.status == "DONE"
+        except:
+            raise BaseException("Does not exist")
+        self.save()
