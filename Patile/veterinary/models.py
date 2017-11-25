@@ -12,4 +12,4 @@ class Veterinary(models.Model):
 
 class Veterinary_Patient(models.Model):
     veterinary = models.ForeignKey("Veterinary", related_name="patient")
-    patient = models.ForeignKey("Patient", related_name="veterinary")
+    patient = models.ForeignKey("patient.Patient", related_name="veterinary")

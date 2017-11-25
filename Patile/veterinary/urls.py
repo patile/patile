@@ -6,4 +6,5 @@ app_name = 'veterinary'
 
 urlpatterns = [
     url(r'^accept', views.accept_patient, name='accept'),
+    url(r'^$', views.login,name='login'),
 ]
