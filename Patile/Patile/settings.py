@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'patient',
+    'users',
+    'veterinary',
     'home',
 ]
 
@@ -73,8 +76,12 @@ WSGI_APPLICATION = 'Patile.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ntlgbvakckyynl',
+        'USER': 'de14r7v7urmfs1',
+        'PASSWORD': '9228d2437cf9a66cf1ed7f7850ed7d7146bb69bf9fe529eb65f024b849c88df1',
+        'HOST': 'ec2-54-247-119-245.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
