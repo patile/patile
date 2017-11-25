@@ -1,13 +1,15 @@
 from django.db import models
 
+
 class City(models.Model):
     city_name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.city_name
 
+
 class Veterinary(models.Model):
-    photo = models.ImageField()
+    photo = models.ImageField(null=True, blank=True)
     veterinary_name = models.CharField(max_length=200)
     latitute = models.DecimalField(max_digits=9, decimal_places=6)
     longtitute = models.DecimalField(max_digits=9, decimal_places=6)
@@ -15,7 +17,7 @@ class Veterinary(models.Model):
     address = models.TextField()
     created_date = models.DateField()
 
-    city = models.ForeignKey("City",related_name="veterinary")
+    city = models.ForeignKey("City", related_name="veterinary")
 
     def __str__(self):
         return self.veterinary_name
