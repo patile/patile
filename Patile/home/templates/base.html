@@ -55,58 +55,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
-<!-- navigation -->
-<div class="top-nav w3-agiletop">
-    <div class="agile_inner_nav_w3ls">
-        <div class="navbar-header w3llogo">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <h1><i class="fa fa-paw" aria-hidden="true" style="color: white;"></i><a href="{% url 'home:index' %}">Patile</a></h1>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="w3menu navbar-left">
-                <ul class="nav navbar">
-                    <li><a href="{% url 'home:index' %}" class="active">Anasayfa</a></li>
-                    <li><a href="{% url 'home:about' %}">Hakkımızda</a></li>
-                    <li><a href="{% url 'home:pets' %}">Hayvanlarımız</a></li>
-                    <li><a href="{% url 'home:vets' %}">Veterinerlerimiz</a></li>
-                    <li><a href="{% url 'home:payment' %}">Bağış Yapın</a></li>
-                </ul>
-            </div>
 
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-</div>
+{% include 'navbar.html' %}
+
+
+<!-- navigation -->
 <!-- //navigation -->
-<div class="container-fluid" style="height: 100%">
-</div>
+<div class="container-fluid" style="height: 100%; padding: 0;">
+
 {% block content %}
 
 
 {% endblock %}
-
-<!-- copy rights start here -->
-<div class="copy-w3right">
-    <div class="container">
-        <div class="top-nav bottom-w3lnav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="icons.html">Icons</a></li>
-                <li><a href="typo.html">Typography</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <p>© 2017 Pets Care. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-    </div>
 </div>
+<!-- copy rights start here -->
+
+
+{% include 'footer.html' %}
+
+
 <!-- text-effect -->
 <script type="text/javascript" src="js/jquery.transit.js"></script>
 <script type="text/javascript" src="js/jquery.textFx.js"></script>
