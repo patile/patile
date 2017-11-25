@@ -1,5 +1,10 @@
 from django.db import models
 
+class City(models.Model):
+    city_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.city_name
 
 class Veterinary(models.Model):
     photo = models.ImageField()
@@ -9,6 +14,8 @@ class Veterinary(models.Model):
     notice_count = models.IntegerField()
     address = models.TextField()
     created_date = models.DateField()
+
+    city = models.ForeignKey("City",related_name="veterinary")
 
     def __str__(self):
         return self.veterinary_name
@@ -29,3 +36,9 @@ class Status(models.Model):
 
     def __str__(self):
         return self.patient.patient.name + " - " + self.status
+
+
+
+
+
+
