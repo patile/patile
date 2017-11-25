@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^singleVet/$', views.singleVet, name='singleVet'),
     url(r'^about/$', views.about, name='about'),
     url(r'^payment/$', views.payment, name='payment'),
+    url(r'^bestVets/$', views.bestVets, name='bestVets'),
+    url(r'^bestUsers/$', views.bestUsers, name='bestUsers'),
 
 ]

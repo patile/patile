@@ -2,146 +2,156 @@
 {% load staticfiles %}
 {% block content %}
 
+<link href="{% static 'css/search.css'%}" rel="stylesheet" type="text/css">
+
 <!-- Modal1 -->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
 
-					<div class="signin-form profile">
-						<h3 class="agileinfo_sign">Sign In</h3>
-						<div class="login-form">
-							<form action="#" method="post">
-								<input type="email" name="email" placeholder="E-mail" required="">
-								<input type="password" name="password" placeholder="Password" required="">
-								<div class="tp">
-									<input type="submit" value="Sign In">
-								</div>
-							</form>
-						</div>
-						<div class="login-social-grids">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-rss"></i></a></li>
-							</ul>
-						</div>
-						<p><a href="#" data-toggle="modal" data-target="#myModal3"> Don't have an account?</a></p>
+				<div class="signin-form profile">
+					<h3 class="agileinfo_sign">Sign In</h3>
+					<div class="login-form">
+						<form action="#" method="post">
+							<input type="email" name="email" placeholder="E-mail" required="">
+							<input type="password" name="password" placeholder="Password" required="">
+							<div class="tp">
+								<input type="submit" value="Sign In">
+							</div>
+						</form>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- //Modal1 -->
-	<!-- Modal2 -->
-	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-
-					<div class="signin-form profile">
-						<h3 class="agileinfo_sign">Sign Up</h3>
-						<div class="login-form">
-							<form action="#" method="post">
-								<input type="text" name="name" placeholder="Username" required="">
-								<input type="email" name="email" placeholder="Email" required="">
-								<input type="password" class="password" name="Password" id="password1" placeholder="Password" required="" />
-								<input type="password" class="password" name="Confirm Password" id="password2" placeholder="Confirm Password" required=""
-								/>
-								<input type="submit" value="Sign Up">
-							</form>
-						</div>
-						<p><a href="#"> By clicking register, I agree to your terms</a></p>
+					<div class="login-social-grids">
+						<ul>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i></a></li>
+						</ul>
 					</div>
+					<p><a href="#" data-toggle="modal" data-target="#myModal3"> Don't have an account?</a></p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- //Modal2 -->
-	<!-- gallery -->
-	<div class="gallery">
-		<div class="container">
-			<h3 class="agileits-title">Hayvanlarımız</h3>
-			<div class="gallery-agileinfo">
-				<div class="col-sm-4 col-xs-6 w3gallery-grids">
-					<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-						<img src="{% static 'images/g1.jpg'%}" alt="" title="Pets Care Image"/>
-						<div class="agile-figcaption">
-						  <h4>Pets Care</h4>
-						  <p>Add Some Description</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-4 col-xs-6 w3gallery-grids">
-					<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-						<img src="{% static 'images/g2.jpg'%}" alt="" title="Pets Care Image"/>
-						<div class="agile-figcaption">
-						  <h4>Pets Care</h4>
-						  <p>Add Some Description</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-4 col-xs-6 w3gallery-grids">
-					<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-						<img src="{% static 'images/g3.jpg'%}" alt="" title="Pets Care Image"/>
-						<div class="agile-figcaption">
-						  <h4>Pets Care</h4>
-						  <p>Add Some Description</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-4 col-xs-6 w3gallery-grids">
-					<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-						<img src="{% static 'images/g4.jpg'%}" alt="" title="Pets Care Image"/>
-						<div class="agile-figcaption">
-						  <h4>Pets Care</h4>
-						   <p>Add Some Description</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-4 col-xs-6 w3gallery-grids">
-					<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-						<img src="{% static 'images/g5.jpg'%}" alt="" title="Pets Care Image"/>
-						<div class="agile-figcaption">
-						  <h4>Pets Care</h4>
-						  <p>Add Some Description</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-4 col-xs-6 w3gallery-grids">
-					<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-						<img src="{% static 'images/g6.jpg'%}" alt="" title="Pets Care Image"/>
-						<div class="agile-figcaption">
-						  <h4>Pets Care</h4>
-						  <p>Add Some Description</p>
-						</div>
-					</a>
-				</div>
-				<div class="clearfix"> </div>
+</div>
+<!-- //Modal1 -->
+<!-- Modal2 -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
 
+				<div class="signin-form profile">
+					<h3 class="agileinfo_sign">Sign Up</h3>
+					<div class="login-form">
+						<form action="#" method="post">
+							<input type="text" name="name" placeholder="Username" required="">
+							<input type="email" name="email" placeholder="Email" required="">
+							<input type="password" class="password" name="Password" id="password1" placeholder="Password" required="" />
+							<input type="password" class="password" name="Confirm Password" id="password2" placeholder="Confirm Password" required=""
+							/>
+							<input type="submit" value="Sign Up">
+						</form>
+					</div>
+					<p><a href="#"> By clicking register, I agree to your terms</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
-	<!-- //gallery -->
-	<!-- subscribe -->
-	<div class="subscribe wthree-sub">
-		<div class="container">
-			<h4>Subscribe Now</h4>
-			<form action="#" method="post">
-				<input type="email" name="email" placeholder="Enter your Email..." required="">
-				<input type="submit" value="Subscribe">
-				<div class="clearfix"> </div>
-			</form>
-			<div class="w3lsfoter-icons social-icon">
-				<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
-				<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
-				<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
-				<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a>
+</div>
+<!-- //Modal2 -->
+<!-- gallery -->
+
+
+
+<div class="gallery">
+	<div class="container">
+		<h3 class="agileits-title">Hayvanlarımız</h3>
+
+ <form class="form-inline col-md-12 " style="text-align: center;">
+          <input class="form-control " type="text" placeholder="Search" style="width: 50%">
+          <button class="btn btn-warning" type="submit" style="background-color: #FF5F00">Search</button>
+ </form>
+		<div class="gallery-agileinfo">
+			<div class="col-sm-4 col-xs-6 w3gallery-grids">
+				<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
+					<img src="{% static 'images/g1.jpg'%}" alt="" title="Pets Care Image"/>
+					<div class="agile-figcaption">
+						<h4>Pets Care</h4>
+						<p>Add Some Description</p>
+					</div>
+				</a>
 			</div>
+			<div class="col-sm-4 col-xs-6 w3gallery-grids">
+				<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
+					<img src="{% static 'images/g2.jpg'%}" alt="" title="Pets Care Image"/>
+					<div class="agile-figcaption">
+						<h4>Pets Care</h4>
+						<p>Add Some Description</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-sm-4 col-xs-6 w3gallery-grids">
+				<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
+					<img src="{% static 'images/g3.jpg'%}" alt="" title="Pets Care Image"/>
+					<div class="agile-figcaption">
+						<h4>Pets Care</h4>
+						<p>Add Some Description</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-sm-4 col-xs-6 w3gallery-grids">
+				<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
+					<img src="{% static 'images/g4.jpg'%}" alt="" title="Pets Care Image"/>
+					<div class="agile-figcaption">
+						<h4>Pets Care</h4>
+						<p>Add Some Description</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-sm-4 col-xs-6 w3gallery-grids">
+				<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
+					<img src="{% static 'images/g5.jpg'%}" alt="" title="Pets Care Image"/>
+					<div class="agile-figcaption">
+						<h4>Pets Care</h4>
+						<p>Add Some Description</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-sm-4 col-xs-6 w3gallery-grids">
+				<a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
+					<img src="{% static 'images/g6.jpg'%}" alt="" title="Pets Care Image"/>
+					<div class="agile-figcaption">
+						<h4>Pets Care</h4>
+						<p>Add Some Description</p>
+					</div>
+				</a>
+			</div>
+			<div class="clearfix"> </div>
+
 		</div>
 	</div>
+</div>
+<!-- //gallery -->
+<!-- subscribe -->
+<div class="subscribe wthree-sub">
+	<div class="container">
+		<h4>Subscribe Now</h4>
+		<form action="#" method="post">
+			<input type="email" name="email" placeholder="Enter your Email..." required="">
+			<input type="submit" value="Subscribe">
+			<div class="clearfix"> </div>
+		</form>
+		<div class="w3lsfoter-icons social-icon">
+			<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+			<a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+			<a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
+			<a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a>
+		</div>
+	</div>
+</div>
 {% endblock %}
