@@ -65,22 +65,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <h1><a href="index.html">Pets Care</a></h1>
+            <h1><i class="fa fa-paw" aria-hidden="true" style="color: white;"></i><a href="index.html">Patile</a></h1>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="w3menu navbar-left">
                 <ul class="nav navbar">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-letters="Pages">Pages</span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="icons.html">Icons</a></li>
-                            <li><a href="typo.html">Typography</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="" class="active">Anasayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="{% url 'home:pets' %}">Hayvanlarımız</a></li>
+                    <li><a href="{% url 'home:vets' %}">Veterinerlerimiz</a></li>
+                    <li><a href="typo.html">Bağış Yapın</a></li>
                 </ul>
             </div>
 
