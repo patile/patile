@@ -20,4 +20,8 @@ def about(request):
     return render(request, 'about.html')
 def payment(request):
     return render(request, 'payment.html')
+def bestVets(request):
+    return render(request, 'bestVets.html')
+def bestUsers(request):
+    return render(request, 'bestUsers.html')
 

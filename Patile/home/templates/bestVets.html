@@ -1,0 +1,80 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    td,th{
+        border-color: #FF5F00 !important;
+    }
+    td{
+        color: black !important;
+    }
+    th{
+        color: #FF5F00 !important;
+    }
+</style>
+<h3 class="agileits-title" style="margin-top: 25px">En Yardımsever Veterinerlerimiz</h3>
+
+<div class="container" style="height: 70%; margin-top: 50px;">
+<div class="card mb-3" id="goTable">
+            <div class="card-header">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-color: #FF5F00">
+                        <thead>
+                        <tr>
+                            <th>Veteriner Adı</th>
+                            <th>Şehir</th>
+                            <th>İlçe</th>
+                            <th>Tedavi Sayısı</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>66</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>33</td>
+
+                        </tr>
+                           </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+            <div class="card-footer small text-muted" style="margin-bottom: 20px">Updated yesterday at 11:59 PM</div>
+        </div>
+
+</body>
+{% endblock %}
