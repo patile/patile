@@ -48,7 +48,7 @@
 				<div class="signin-form profile">
 					<h3 class="agileinfo_sign">Sign Up</h3>
 					<div class="login-form">
-						<form action="#" method="post">
+                        <form action="" method="post">
 							<input type="text" name="name" placeholder="Username" required="">
 							<input type="email" name="email" placeholder="Email" required="">
 							<input type="password" class="password" name="Password" id="password1" placeholder="Password" required="" />
@@ -72,66 +72,23 @@
 	<div class="container">
 		<h3 class="agileits-title">Hayvanlarımız</h3>
 
-        <form id="search_form" class="form-inline col-md-12 " style="text-align: center;">{% csrf_token %}
-            <input class="form-control " type="text" name="patient_id" placeholder="Search" style="width: 50%">
-          <button class="btn btn-warning" type="submit" style="background-color: #FF5F00">Search</button>
+        <form id="search_form" class="form-inline col-md-12 " style="text-align: center;">
+            <input class="form-control " type="text" name="patient_name" placeholder="Search" style="width: 50%">
+            <button class="btn btn-warning searchBtn" type="submit" style="background-color: #FF5F00">Search</button>
  </form>
         <div class="patients">
             <div class="gallery-agileinfo">
+                {% for patient in patients %}
                 <div class="col-sm-4 col-xs-6 w3gallery-grids">
-                    <a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-                        <img src="{% static 'images/g1.jpg'%}" alt="" title="Pets Care Image"/>
+                    <a href="{% url 'patient:pet_details' patient.id %}" class="imghvr-hinge-right figure">
+                        <img src="/media/{{ patient.before }}" alt="" title="Pets Care Image"/>
                         <div class="agile-figcaption">
-                            <h4>Pets Care</h4>
-                            <p>Add Some Description</p>
+                            <h4>{{ patient.name }}</h4>
+                            <p>{{ patient.description }}</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-4 col-xs-6 w3gallery-grids">
-                    <a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-                        <img src="{% static 'images/g2.jpg'%}" alt="" title="Pets Care Image"/>
-                        <div class="agile-figcaption">
-                            <h4>Pets Care</h4>
-                            <p>Add Some Description</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 w3gallery-grids">
-                    <a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-                        <img src="{% static 'images/g3.jpg'%}" alt="" title="Pets Care Image"/>
-                        <div class="agile-figcaption">
-                            <h4>Pets Care</h4>
-                            <p>Add Some Description</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 w3gallery-grids">
-                    <a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-                        <img src="{% static 'images/g4.jpg'%}" alt="" title="Pets Care Image"/>
-                        <div class="agile-figcaption">
-                            <h4>Pets Care</h4>
-                            <p>Add Some Description</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 w3gallery-grids">
-                    <a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-                        <img src="{% static 'images/g5.jpg'%}" alt="" title="Pets Care Image"/>
-                        <div class="agile-figcaption">
-                            <h4>Pets Care</h4>
-                            <p>Add Some Description</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 w3gallery-grids">
-                    <a href="{% url 'home:singlePet' %}" class="imghvr-hinge-right figure">
-                        <img src="{% static 'images/g6.jpg'%}" alt="" title="Pets Care Image"/>
-                        <div class="agile-figcaption">
-                            <h4>Pets Care</h4>
-                            <p>Add Some Description</p>
-                        </div>
-                    </a>
-                </div>
+                {% endfor %}
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -156,3 +113,33 @@
 	</div>
 </div>
 {% endblock %}
+<script>
+    $(".searchBtn").on('click', function (event) {
+        alert("asdfasdf");
+        event.preventDefault();
+        var form = $(this).closest("form");
+        var patient_name = form.find("input[name='patient_name']").val();
+        $.ajax({
+            type: "POST",
+            url: "{% url 'patient:search_patient' %}",
+            data: {
+                csrfmiddlewaretoken: "{% csrf_token %}",
+                patient_name: patient_name
+            },
+            success: function (data) {
+                var new_html = "";
+                if (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var href = "/patients/pet_details/" + data.patient_name;
+                        new_html += '<div class=\"gallery-agileinfo\">';
+                        new_html += '<div class="col-sm-4 col-xs-6 w3gallery-grids">';
+                        new_html += '<a href="+ href + " class="imghvr-hinge-right figure">';
+                        new_html += '<img src="/media/' + data.before + '" title="Pets Care Image"/>';
+                        new_html += '<div class="agile-figcaption"><h4>' + data.name + '</h4><p>' + data.description + '</p></div></a>';
+                        $("#patients").append(new_html);
+                    }
+                }
+            }
+        });
+    });
+</script>

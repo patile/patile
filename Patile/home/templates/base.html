@@ -21,8 +21,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link rel="stylesheet" href="{% static 'css/easy-responsive-tabs.css'%}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block stylesheet %}
     {% endblock %}
 
@@ -35,17 +33,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             window.scrollTo(0, 1);
         }
     </script>
-    <!-- Custom Theme files -->
-    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-    <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
-    <!-- easy-responsive-tabs -->
-
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <!-- font-awesome icons -->
-    <!-- //Custom Theme files -->
-    <!-- js -->
-    <script src="js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
     <!-- web-fonts -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
@@ -77,7 +64,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <ul class="nav navbar">
                             <li><a href="{% url 'home:index' %}" class="active">ANASAYFA</a></li>
                             <li><a href="{% url 'home:about' %}">HAKKIMIZDA</a></li>
-                            <li><a href="{% url 'home:pets' %}">HAYVANLARIMIZ</a></li>
+                            <li><a href="{% url 'patient:pets' %}">HAYVANLARIMIZ</a></li>
                             <li><a href="{% url 'home:vets' %}">VETERİNERLERİMİZ</a></li>
                             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false"><span
@@ -115,7 +102,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <ul>
                 <li><a href="{% url 'home:index' %}">ANA SAYFA</a></li>
                 <li><a href="{% url 'home:about' %}">HAKKIMIZDA</a></li>
-                <li><a href="{% url 'home:pets' %}">HAYVANLARIMIZ</a></li>
+                <li><a href="{% url 'patient:pets' %}">HAYVANLARIMIZ</a></li>
                 <li><a href="{% url 'home:vets' %}">VETERİNERLERİMİZ</a></li>
                 <li><a href="{% url 'home:payment' %}">BAĞIŞ YAPIN</a></li>
                 <li><a href="{% url 'home:contact' %}">İLETİŞİM</a></li>
@@ -126,9 +113,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 
 
-<!-- text-effect -->
-<script type="text/javascript" src="js/jquery.transit.js"></script>
-<script type="text/javascript" src="js/jquery.textFx.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/easy-responsive-tabs.js' %}"></script>
+    <script src="{% static 'js/jquery.textFx.js' %}"></script>
+    <script src="{% static 'js/move-top.js' %}"></script>
+    <script src="{% static 'js/pace.min.js' %}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.w3ls_agile').textFx({
@@ -167,9 +157,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     }
 </script>
 <!-- //password-script -->
-
-<!-- script for responsive tabs -->
-<script src="js/easy-responsive-tabs.js"></script>
 <script>
     $(document).ready(function () {
         $('#horizontalTab').easyResponsiveTabs({
@@ -192,13 +179,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
     });
 </script>
-<!-- script for responsive tabs -->
-<script src="js/SmoothScroll.min.js"></script>
-<!-- start-smooth-scrolling -->
-    <script src="{% static 'js/pace.min.js' %}"></script>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
+
+    <!-- start-smooth-scrolling -->
+
+    <script type="text/javascript">
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
@@ -228,11 +212,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     });
 </script>
-<!-- //smooth-scrolling-of-move-up -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="js/bootstrap.js"></script>
+
 </body>
 
 </html>
