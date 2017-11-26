@@ -32,4 +32,6 @@ def bestVets(request):
     return render(request, 'bestVets.html')
 def bestUsers(request):
     return render(request, 'bestUsers.html')
+def payComp(request):
+    return render(request, 'payComp.html')
 
