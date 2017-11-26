@@ -1,10 +1,12 @@
 import json
 
+from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from patient.models import Patient
+from veterinary.forms import SignUpForm, LoginForm
 from veterinary.models import Veterinary_Patient, Veterinary
 
 
@@ -48,7 +50,6 @@ def close_patient(request):
 def vet_patient(request):
     results = []
     if request.method == "POST":
-        vet = request.user
         vet_pet = Veterinary_Patient.objects.filter(veterinary=Veterinary.objects.get())
         response_json = {}
         for pet in vet_pet:
@@ -68,3 +69,39 @@ def vet_count(request):
         response_json["close_count"] = str(close_pet)
         data = json.dumps(response_json)
         return HttpResponse(data)
+
+
+def vet_register(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect("home:index")
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
+
+
+def LoginView(request):
+    if request.user.is_authenticated:
+        return redirect("home:index")
+
+    if request.method == "POST":
+
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect("home:index")
+        else:
+            return redirect("user:login")
+
+    form = LoginForm()
+    return render(request, "registration/login.html", {"form": form})

@@ -16,7 +16,7 @@ class Veterinary(models.Model):
     notice_count = models.IntegerField()
     address = models.TextField()
     created_date = models.DateField()
-
+    owner = models.ForeignKey("auth.User", related_name="vet")
     city = models.ForeignKey("City", related_name="veterinary")
 
     def __str__(self):
@@ -38,6 +38,7 @@ class Status(models.Model):
 
     def __str__(self):
         return self.patient.patient.name + " - " + self.status
+
 
 
 
