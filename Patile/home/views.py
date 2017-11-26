@@ -7,6 +7,10 @@ def index(request):
 def pets(request):
     return render(request, 'pets.html')
 
+
+def contact(request):
+    return render(request, 'contact.html')
+
 def vets(request):
     return render(request, 'vets.html')
 
