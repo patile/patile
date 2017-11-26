@@ -34,7 +34,10 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-medkit vet-fa"></i>
                         </div>
-                        <div class="mr-5">11 hasta sokak hayvanı tedavi altında</div>
+                        <div class="mr-5">
+                            <small id="active_count"></small>
+                            hasta sokak hayvanı tedavi altında
+                        </div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="{% url 'veterinary:under_treatment' %}">
                         <span class="float-left">Detaylar</span>
@@ -50,7 +53,10 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-h-square vet-fa"></i>
                         </div>
-                        <div class="mr-5">10 sokak hayvanı sağlığına kavuşmuştur</div>
+                        <div class="mr-5">
+                            <small id="close_count"></small>
+                            sokak hayvanı sağlığına kavuşmuştur
+                        </div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="{% url 'veterinary:success' %}">
                         <span class="float-left">Detaylar</span>
@@ -902,5 +908,23 @@
             }, 2000);
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "{% url 'veterinary:count' %}",
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                },
+                success: function (data) {
+                    var json = JSON.parse(data);
+                    $("#active_count").text(json.active_count);
+                    $("#close_count").text(json.close_count);
+
+                }
+            });
+        });
+    </script>
 </div>
+
 {% endblock %}
