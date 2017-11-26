@@ -10,7 +10,7 @@ from veterinary.forms import SignUpForm, LoginForm
 from veterinary.models import Veterinary_Patient, Veterinary
 
 
-def login(request):
+def index(request):
     return render(request, 'vet-home.html')
 
 
@@ -92,19 +92,8 @@ def LoginView(request):
         return redirect("home:index")
 
     if request.method == "POST":
+        return redirect("veterinary:index")
 
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data["username"]
-            password = form.cleaned_data["password"]
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect("home:index")
-            else:
-                return redirect("home:index")
-        else:
-            return redirect("home:index")
 
 def get_warning(request):
     patient_id = request.GET.get('patient_id',' ')

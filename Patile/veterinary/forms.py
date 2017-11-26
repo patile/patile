@@ -23,3 +23,9 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ["username", "password"]
+
+    def clean_password(self):
+        return self.password
+
+    def clean_username(self):
+        return self.username
