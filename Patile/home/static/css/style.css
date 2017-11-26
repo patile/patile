@@ -130,7 +130,7 @@ body a:focus {
 	letter-spacing: 15px;
 }
 
-.banner-w3text p {
+.banner-w3text12 p {
     font-size: 2em;
 	color: #ff5722;
 	letter-spacing: 10px;
@@ -2256,6 +2256,12 @@ h2.typoh2 {
 
 
 /*-- single --*/
+
+#p-color {
+    color: #ff6600;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
 
 .w3ls_single_left_grid_right h3 {
 	font-size: 1.5em;
