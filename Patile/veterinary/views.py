@@ -100,8 +100,8 @@ def LoginView(request):
             if user is not None:
                 login(request, user)
                 return redirect("home:index")
+            else:
+                return redirect("home:index")
         else:
-            return redirect("user:login")
+            return redirect("home:index")
 
-    form = LoginForm()
-    return render(request, "registration/login.html", {"form": form})

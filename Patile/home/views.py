@@ -1,8 +1,12 @@
 from django.shortcuts import render
 
+from veterinary.forms import LoginForm
+
 
 def index(request):
-    return render(request, 'index.html')
+    form = LoginForm(request.POST)
+
+    return render(request, 'index.html', {"form":form})
 
 def pets(request):
     return render(request, 'pets.html')

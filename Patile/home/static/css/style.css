@@ -174,7 +174,7 @@ body a:focus {
 
 .top-nav {
 	z-index: 999;
-	background: #FF5722;
+	background: #ff6600;
 	padding: 1em 0;
 }
 
@@ -221,7 +221,7 @@ ul.nav.navbar {
 
 .top-nav ul li a:hover,
 .top-nav ul li a.active {
-	background: #FF5722;
+	background: black !important;
 }
 
 .top-nav .open>.dropdown-menu {
