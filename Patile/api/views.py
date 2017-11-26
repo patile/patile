@@ -4,10 +4,11 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.serializers import PatientSerializer,VeterinarySerializer
+from api.serializers import PatientSerializer, VeterinarySerializer
 from patient.models import Patient
-from veterinary.models import Veterinary
 from users.models import UserProfile
+from veterinary.models import Veterinary
+
 
 class PatientView(APIView):
     """
@@ -29,7 +30,10 @@ class PatientView(APIView):
         data = json.loads(body_unicode)
         print(data)
         user, created = UserProfile.objects.get_or_create(**data.get("user"))
-        data["user"] = user
+        if created:
+            data["user"] = created
+        else:
+            data["user"] = user
         Patient.objects.create(**data)
         return Response(status=status.HTTP_200_OK)
 

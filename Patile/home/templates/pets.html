@@ -72,11 +72,11 @@
 	<div class="container">
 		<h3 class="agileits-title">Hayvanlarımız</h3>
 
-        <form id="search_form" class="form-inline col-md-12 " style="text-align: center;">
+        <form id="search_form" class="form-inline col-md-12 " style="text-align: center;">{% csrf_token %}
             <input class="form-control " type="text" name="patient_name" placeholder="Search" style="width: 50%">
             <button class="btn btn-warning searchBtn" type="submit" style="background-color: #FF5F00">Search</button>
  </form>
-        <div class="patients">
+        <div id="patients">
             <div class="gallery-agileinfo">
                 {% for patient in patients %}
                 <div class="col-sm-4 col-xs-6 w3gallery-grids">
@@ -113,9 +113,9 @@
 	</div>
 </div>
 {% endblock %}
+{% block scripts %}
 <script>
     $(".searchBtn").on('click', function (event) {
-        alert("asdfasdf");
         event.preventDefault();
         var form = $(this).closest("form");
         var patient_name = form.find("input[name='patient_name']").val();
@@ -123,23 +123,25 @@
             type: "POST",
             url: "{% url 'patient:search_patient' %}",
             data: {
-                csrfmiddlewaretoken: "{% csrf_token %}",
+                csrfmiddlewaretoken: '{{ csrf_token }}',
                 patient_name: patient_name
             },
-            success: function (data) {
+            success: function (json) {
+                console.log(json[0]);
                 var new_html = "";
-                if (data) {
-                    for (var i = 0; i < data.length; i++) {
-                        var href = "/patients/pet_details/" + data.patient_name;
+                if (json) {
+                    for (var i = 0; i < json.length; i++) {
+                        var href = "/patients/pet-details/" + json[0].pk;
                         new_html += '<div class=\"gallery-agileinfo\">';
                         new_html += '<div class="col-sm-4 col-xs-6 w3gallery-grids">';
-                        new_html += '<a href="+ href + " class="imghvr-hinge-right figure">';
-                        new_html += '<img src="/media/' + data.before + '" title="Pets Care Image"/>';
-                        new_html += '<div class="agile-figcaption"><h4>' + data.name + '</h4><p>' + data.description + '</p></div></a>';
-                        $("#patients").append(new_html);
+                        new_html += '<a href="' + href + '" class="imghvr-hinge-right figure">';
+                        new_html += '<img src="/media/' + json[0].fields.before + '" title="Pets Care Image"/>';
+                        new_html += '<div class="agile-figcaption"><h4>' + json[0].fields.name + '</h4><p>' + json[0].fields.description + '</p></div></a>';
+                        $("#patients").html(new_html);
                     }
                 }
             }
         });
     });
 </script>
+{% endblock %}

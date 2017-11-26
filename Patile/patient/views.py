@@ -1,5 +1,6 @@
 # Create your views here.
-from django.http import JsonResponse, HttpResponse
+from django.core import serializers
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from patient.models import Patient
@@ -10,7 +11,8 @@ def search_patient(request):
         patient_name = request.POST.get("patient_name")
         patients = Patient.objects.filter(name__icontains=patient_name)
         if patients:
-            return JsonResponse(patients)
+            data = serializers.serialize("json", patients)
+            return HttpResponse(data, content_type='application/json')
         else:
             return HttpResponse(False)
 

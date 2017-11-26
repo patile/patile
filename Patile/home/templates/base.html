@@ -186,7 +186,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
-
             $('html,body').animate({
                 scrollTop: $(this.hash).offset().top
             }, 1000);
@@ -212,6 +211,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     });
 </script>
+    {% block scripts %}
+    {% endblock %}
 
 </body>
 
