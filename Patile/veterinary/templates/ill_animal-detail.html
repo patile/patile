@@ -13,31 +13,21 @@
             <th scope="col">Türü</th>
             <th scope="col">Cinsiyeti</th>
             <th scope="col">Açıklaması</th>
-            <th scope="col">İhbar Durumu</th>
+
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Köpek</td>
-            <td>Erkek</td>
-            <td>Kas Ezilmesi</td>
-            <td><a href="#" class="ill_ihbar1">İhbarı Üstlen</a></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Kedi</td>
-            <td>Dişi</td>
-            <td>Ateş</td>
-            <td><a href="#" class="ill_ihbar2">İhbarı Üstlen</a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Köpek</td>
-            <td>Erkek</td>
-            <td>Kas Ezilmesi</td>
-            <td><a href="#" class="ill_ihbar1">İhbarı Üstlen</a></td>
-        </tr>
+        {% for data in patient_datas %}
+            <tr>
+
+                <td>{{  data.name }}</td>
+                <td>{{ data.status }}</td>
+                <td>{{ data.description }}</td>
+                <td>{{ data.description }}</td>
+                <td><a href="get_warning?patient_id={{ data.id }}" class="ill_ihbar1">İhbarı Üstlen</a></td>
+
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}

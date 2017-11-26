@@ -1,0 +1,36 @@
+
+<html>
+            <head>
+                <style type="text/css"> html, body, #mapFrame { width: 100%; height: 100%; margin: 0; padding: 0; } </style>
+                <script src="http://sehirharitasi.ibb.gov.tr/api/map2.js"></script>
+            </head>
+        <body>
+
+        <div id="harita" style="width:70%; height:70%">
+            <iframe id="mapFrame" src="http://sehirharitasi.ibb.gov.tr/">
+                <p>Tarayıcınız iframe özelliklerini desteklemiyor !</p>
+            </iframe>
+        </div>
+
+        <script>
+var ibbMAP = new SehirHaritasiAPI({mapFrame:"mapFrame",apiKey:"b162c818847b4fe8b8ee30f408a577b6"}, function(){
+	ibbMAP.RouteAnalysis.TUBS({
+		start:
+		{
+			lat: 41.01662773,
+			lon: 28.91846180
+		},
+		finish:
+		{
+			lat: 41.00781966,
+			lon: 28.93090725
+		},
+		type: "BUS,SUBWAY,WALK",
+		time: "20:00",
+		date: "2016-06-24"
+	});
+});
+        </script>
+
+        </body>
+</html>
