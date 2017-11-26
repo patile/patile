@@ -13,3 +13,6 @@ class UserProfile(models.Model):
     @property
     def get_notice_count(self):
         return Patient.objects.filter(pk=self.id).count()
+
+    def __str__(self):
+        return self.full_name

@@ -108,10 +108,11 @@ def LoginView(request):
 
 def get_warning(request):
     patient_id = request.GET.get('patient_id',' ')
-    vet_obj = Veterinary.objects.filter(id=request.user.id)
+    vet_obj = Veterinary.objects.get(id=request.user.id)
 
-    patient_obj = Patient.objects.filter(id=patient_id)
-
-    Veterinary_Patient.objects.get_or_create(veterinary=vet_obj[0],patient =patient_obj[0])
+    patient_obj = Patient.objects.get(id=patient_id)
+    patient_obj.status = "TREATMENT"
+    patient_obj.save()
+    Veterinary_Patient.objects.get_or_create(veterinary=vet_obj,patient =patient_obj)
 
     return render(request,"index.html",{"status":True})
