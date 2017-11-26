@@ -15,7 +15,8 @@ def login(request):
 
 
 def ill(request):
-    return render(request, 'ill_animal-detail.html')
+    patient_datas = Patient.objects.all()
+    return render(request, 'ill_animal-detail.html',{"patient_datas":patient_datas})
 
 
 def under_treatment(request):
@@ -105,3 +106,12 @@ def LoginView(request):
         else:
             return redirect("home:index")
 
+def get_warning(request):
+    patient_id = request.GET.get('patient_id',' ')
+    vet_obj = Veterinary.objects.filter(id=request.user.id)
+
+    patient_obj = Patient.objects.filter(id=patient_id)
+
+    Veterinary_Patient.objects.get_or_create(veterinary=vet_obj[0],patient =patient_obj[0])
+
+    return render(request,"index.html",{"status":True})
