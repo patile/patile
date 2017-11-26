@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 body {
 	margin: 0;
-	font-family: 'Times New Roman';
+	font-family: 'Ubuntu';
 	background: #fff;
 }
 
@@ -31,7 +31,7 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	font-family: 'Times New Roman';
+	font-family: 'Ubuntu';
 }
 
 p {
@@ -192,7 +192,6 @@ ul.nav.navbar {
 
 .top-nav ul li a {
 	text-decoration: none;
-	letter-spacing: 4px;
 	font-size: 1.1em;
 	color: #fff;
 	position: relative;
@@ -200,6 +199,7 @@ ul.nav.navbar {
 	padding: .5em 1.1em;
 	display: inline-block;
 	border-radius: 2px;
+	font-weight: bold;
 }
 
 .nav>li>a:hover,
