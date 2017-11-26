@@ -37,6 +37,31 @@ tr:nth-child(odd) {
     font-weight: bold;
 }
 
+.ill_ihbar1 {
+    background-color: #FF5722;
+    color: white;
+    border: 1px solid white !important;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.ill_ihbar2 {
+    background-color: white;
+    color: #FF5722;
+    border: 1px solid #FF5722 !important;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.ill_ihbar1:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.ill_ihbar2:hover {
+    color: #FF5722;
+    text-decoration: none;
+}
 table th,
 table td {
   padding: .625em;

@@ -145,6 +145,11 @@ body a:focus {
     background-color: #FF5722;
 }
 
+.signin-form input[type="submit"]:hover {
+    background-color: white !important;
+    color: #FF5722 !important;
+    font-weight: bold;
+}
 
 /*-- //banner-w3text --*/
 
@@ -279,7 +284,7 @@ ul.agile_top_section a.sign {
 .signin-form h3,
 h3.agileinfo_sign {
 	font-size: 2.5em;
-	color: #212121;
+    color: #FF5722;
 	margin: 1em 0 0.8em 0;
 	letter-spacing: 1px;
 }
