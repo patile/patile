@@ -44,59 +44,61 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
-    <div class="top-nav w3-agiletop">
-        <div class="agile_inner_nav_w3ls">
+<div class="top-nav w3-agiletop">
+    <div class="agile_inner_nav_w3ls">
+        <div class="navbar-header w3llogo">
             <div class="navbar-header w3llogo">
-                <div class="navbar-header w3llogo">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                    <h1><i class="fa fa-paw" aria-hidden="true" style="color: white;left: 0"></i><a href="{% url 'home:index' %}">Patile</a></h1>
-                </div>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <div class="w3menu navbar-left">
-                        <ul class="nav navbar">
-                            <li><a href="{% url 'home:index' %}" class="active">ANASAYFA</a></li>
-                            <li><a href="{% url 'home:about' %}">HAKKIMIZDA</a></li>
-                            <li><a href="{% url 'patient:pets' %}">HAYVANLARIMIZ</a></li>
-                            <li><a href="{% url 'home:vets' %}">VETERİNERLERİMİZ</a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false"><span
-                                    data-letters="Pages">ENLERİMİZ</span><span class="caret"></span></a>
-									<ul class="dropdown-menu">
-                                        <li><a href="{% url 'home:bestVets' %}">VETERİNERLER</a></li>
-                                        <li><a href="{% url 'home:bestUsers' %}">KULLANICILAR</a></li>
-									</ul>
-                            </li>
-
-                            <li><a href="{% url 'home:payment' %}">BAĞIŞ YAPIN</a></li>
-                        </ul>
-                    </div>
-
-
-                <div class="clearfix"> </div>
+                <h1><i class="fa fa-paw" aria-hidden="true" style="color: white;left: 0"></i><a
+                        href="{% url 'home:index' %}">Patile</a></h1>
             </div>
         </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="w3menu navbar-left">
+                <ul class="nav navbar">
+                    <li><a href="{% url 'home:index' %}" class="active">ANASAYFA</a></li>
+                    <li><a href="{% url 'home:about' %}">HAKKIMIZDA</a></li>
+                    <li><a href="{% url 'patient:pets' %}">HAYVANLARIMIZ</a></li>
+                    <li><a href="{% url 'home:vets' %}">VETERİNERLERİMİZ</a></li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false"><span
+                            data-letters="Pages">ENLERİMİZ</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'home:bestVets' %}">VETERİNERLER</a></li>
+                            <li><a href="{% url 'home:bestUsers' %}">KULLANICILAR</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="{% url 'home:payment' %}" class="active">BAĞIŞ YAPIN</a></li>
+                </ul>
+            </div>
+
+
+            <div class="clearfix"></div>
+        </div>
     </div>
+</div>
 
 <!-- navigation -->
 <!-- //navigation -->
 <div class="container-fluid" style="height: 100%; padding: 0;">
 
-{% block content %}
+    {% block content %}
 
 
-{% endblock %}
+    {% endblock %}
 </div>
 <!-- copy rights start here -->
 
-   <div class="copy-w3right">
+<div class="copy-w3right">
     <div class="container">
         <div class="top-nav bottom-w3lnav">
             <ul>
@@ -113,12 +115,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 
 
-    <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/easy-responsive-tabs.js' %}"></script>
-    <script src="{% static 'js/jquery.textFx.js' %}"></script>
-    <script src="{% static 'js/move-top.js' %}"></script>
-    <script src="{% static 'js/pace.min.js' %}"></script>
+<script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+<script src="{% static 'js/easy-responsive-tabs.js' %}"></script>
+<script src="{% static 'js/jquery.textFx.js' %}"></script>
+<script src="{% static 'js/move-top.js' %}"></script>
+<script src="{% static 'js/pace.min.js' %}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.w3ls_agile').textFx({
@@ -180,9 +182,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     });
 </script>
 
-    <!-- start-smooth-scrolling -->
+<!-- start-smooth-scrolling -->
 
-    <script type="text/javascript">
+<script type="text/javascript">
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
@@ -211,8 +213,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     });
 </script>
-    {% block scripts %}
-    {% endblock %}
+{% block scripts %}
+{% endblock %}
 
 </body>
 
